@@ -1,30 +1,26 @@
 import React, { Component } from 'react';
-import { Grid, Row, Col } from 'react-bootstrap';
+import { Grid } from 'semantic-ui-react';
 
 import CardContainer from './card-container';
-import BasicInput from '../views/forms/basic-input';
-import GroupInput from '../views/forms/group-input';
-import ValidateInput from '../views/forms/validate-input';
+import BasicForm from '../views/forms/form-basic';
+import FormWithMessage from '../views/forms/form-with-msg';
 
-
-const BasicInputCard = CardContainer(BasicInput,'Basic Input');
-const GroupInputCard = CardContainer(GroupInput,'Group Input');
-const ValidationInputCard = CardContainer(ValidateInput,'Input with Validation');
+const BasicFormCard = CardContainer(BasicForm,'Basic Form');
+const FormWithMessageCard = CardContainer(FormWithMessage,'Form with Message');
 
 class FormInputContainer extends Component {
 
     render(){
         return(
-            <Grid>
-                <Row>
-                    <Col sm={6}><BasicInputCard /></Col>
-                    <Col sm={6}>
-                        <Row>
-                            <Col><GroupInputCard /></Col>
-                            <Col><ValidationInputCard /></Col>
-                        </Row>
-                    </Col>
-                </Row>
+            <Grid stackable>
+                <Grid.Row columns={2}>
+                    <Grid.Column>
+                        <BasicFormCard />
+                    </Grid.Column>
+                    <Grid.Column>
+                        <FormWithMessageCard />
+                    </Grid.Column>
+                </Grid.Row>
             </Grid>
         );
     }
