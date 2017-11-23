@@ -39,14 +39,10 @@ class TableExample extends Component {
 
     render(){ 
         return(
-        <Segment.Group>
-            <Segment>
+            <div>
                 <FormInlineExample onSubmit={this.handleFormSubmit} errorMsgVisible={this.state.errorMsgVisible}/>
-            </Segment>
-            <Segment>
                 <SmartTable data={this.state.data} loading={this.state.loading}/>
-            </Segment>
-        </Segment.Group>
+            </div>
         );
     } 
 }

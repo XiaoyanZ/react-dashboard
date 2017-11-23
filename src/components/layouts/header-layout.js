@@ -1,35 +1,26 @@
 import React, { Component } from 'react';
-import { Menu, Icon } from 'semantic-ui-react';
+import { Menu } from 'semantic-ui-react';
 
 import SidebarLayout from './sidebar-layout';
 
 class HeaderLayout extends Component {
 
-    constructor(props){
-        super(props);
-        this.state = {
-            navVisible: true,
-        };
+    constructor(){
+        super();
         this.handleNavClick = this.handleNavClick.bind(this);
     }
 
     handleNavClick = (event) => {
         event.preventDefault();
-        this.setState({
-            navVisible: !this.state.navVisible,
-        })
+        this.props.onNavClick();
     }
 
     render(){
         return(
-            <div>
-            <Menu color="pink">
-                <Menu.Item onClick={this.handleNavClick}>
-                    <Icon name="content" />
-                </Menu.Item>
+            <Menu>
+                <Menu.Item onClick={this.handleNavClick} icon='content' />
+                <Menu.Item icon='bell' position='right'/>
            </Menu>
-            <SidebarLayout visible={this.state.navVisible}/>
-            </div>
         );
     }
 }
